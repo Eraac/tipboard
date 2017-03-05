@@ -30,28 +30,7 @@ def _get_cols(rows):
 
 
 def _get_rows(layout):
-    """Validates and returns number of rows."""
-    rows_data = []
-    rows_class = []
-    for row in layout:
-        rows_data.append(row)
-        rows_class.append(row.keys().pop())
-    rows_count = 0
-    sum_of_rows = []
-    for row_class in rows_class:
-        splited_class = row_class.split('_')  # ex: row_1_of_2
-        row = splited_class[1]
-        of_rows = int(splited_class[3])
-        if rows_count == 0:
-            rows_count = int(of_rows)
-            sum_of_rows.append(int(row))
-        elif not rows_count == of_rows:
-            raise WrongSumOfRows('The sum of the lines is incorrect.')
-        else:
-            sum_of_rows.append(int(row))
-    if not sum(sum_of_rows) == rows_count:
-        raise WrongSumOfRows('The sum of the lines is incorrect.')
-    return rows_data
+    return layout
 
 
 def _find_tiles_names(layout):
